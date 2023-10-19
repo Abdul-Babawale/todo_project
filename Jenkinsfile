@@ -11,14 +11,10 @@ pipeline {
                 }
             }
         }
-              stage('Login to docker hub'){
+              stage('Login and push to docker hub'){
             steps{
                    sh 'echo $DOCKERHUB_CREDENTIALS | docker login -u abdulbabawale --password-stdin'
-            }
-        }
-        stage('Push docker image to hub') {
-            steps{
-                sh 'docker push todobackend:1.0.1'
+                   sh 'docker push todobackend:1.0.1'
             }
         }
     }
