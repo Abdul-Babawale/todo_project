@@ -8,7 +8,7 @@ const pool = new Pool({
   host: "database-1.cgcszzcgyegq.us-east-1.rds.amazonaws.com",
  ssl: {
     rejectUnauthorized: false,
-    ca: fs.readFileSync('/home/ec2-user/todo_project/backend/rds-cert/us-east-1-bundle.pem').toString(),
+    ca: fs.readFileSync('us-east-1-bundle.pem').toString(),
 },  
 });
 
