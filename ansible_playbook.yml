@@ -1,0 +1,6 @@
+---
+- host: all
+  become: true
+  tasks:
+   - name: Run the docker container
+     command: docker run -p 8000:8000  abdulbabawale/todobackend:1.0.3 
