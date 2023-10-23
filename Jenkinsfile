@@ -17,6 +17,11 @@ pipeline {
                    sh 'docker push abdulbabawale/todobackend:1.0.3'
             }
         }
+           stage('execute ansible playbook') {
+            steps{
+                ansiblePlaybook installation: 'ansible2', playbook: 'ansible_playbook.yml'
+            }
+        } 
     }
 }
         
