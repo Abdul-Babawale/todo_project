@@ -6,10 +6,26 @@
      yum:
        name:python-pip
        state: present
+       
+   - name: Install docker and docker compose
+     apt:
+       name:"{{ item }}"
+       state: present
+     loop:
+       - docker.io
+       - docker-compose 
+       
    - name: Install docker-py python module
      pip:
        name: docker-py
-       state: present     
+       state: present 
+       
+     - name: pull the latest docker image
+     docker image:
+       name: abdulbabawale/todobackend:1.0.3 
+       source: pull
+       state: present
+       
    - name: Run the docker container
      docker container:
        name:
