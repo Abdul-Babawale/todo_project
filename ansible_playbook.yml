@@ -21,13 +21,13 @@
        state: present 
        
    - name: pull the latest docker image
-      docker image:
+     docker image:
        name: abdulbabawale/todobackend:1.0.3 
        source: pull
        state: present
        
    - name: Run the docker container
-      docker container:
+     docker container:
        name:
        image: abdulbabawale/todobackend:1.0.3 
        state: started
