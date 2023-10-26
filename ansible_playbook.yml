@@ -19,6 +19,12 @@
      pip:
        name: docker-py
        state: present 
+
+   - name: start docker
+     service:
+       name: docker
+       state: started
+       enabled: yes 
        
    - name: pull the latest docker image
      docker image:
