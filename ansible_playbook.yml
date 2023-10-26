@@ -1,6 +1,5 @@
 ---
-- hosts: localhost
-  connection: local
+- hosts: inventory
   become: true
   tasks:
     - name: Install python pip
