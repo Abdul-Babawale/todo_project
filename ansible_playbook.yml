@@ -1,5 +1,6 @@
 ---
-- host: all
+- hosts: localhost
+  connection: local
   become: true
   tasks:
     - name: Install python pip
