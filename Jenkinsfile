@@ -19,7 +19,7 @@ pipeline {
         }
            stage('execute ansible playbook') {
             steps{
-                ansiblePlaybook installation: 'ansible2', playbook: 'ansible_playbook.yml'
+                ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible2', inventory: 'inventory.inv', playbook: 'ansible_playbook.yml'
             }
         } 
     }
