@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Login to docker hub'){
             steps{
-                   sh 'echo $DOCKERHUB_CREDENTIALS | docker login -u abdulbabawale --password-stdin'
+                    sh 'echo $DOCKERHUB_CREDENTIALS | docker login -u abdulbabawale --password-stdin'
             }
         }
         stage('execute ansible playbook') {
