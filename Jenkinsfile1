@@ -3,7 +3,6 @@ pipeline {
     environment {
         DOCKERHUB_CREDENTIALS = credentials('docker_login')
     } 
-
     stages {
         stage('Login to docker hub'){
             steps{
