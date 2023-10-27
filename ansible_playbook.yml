@@ -47,7 +47,7 @@
        state: present
        
    - name: Run the docker container
-     docker_container:
+     community.docker.docker_container:
        name:
        image: abdulbabawale/todobackend:1.0.3 
        state: started
