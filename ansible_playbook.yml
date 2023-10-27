@@ -1,0 +1,55 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+       
+   - name: Install python pip
+     become: true
+     become_user: root
+     package:
+       name: 
+         - python-pip
+       state: present  
+
+   - name: Install docker 
+     become: true
+     become_user: root
+     package:
+       name: 
+         - docker
+       state: present 
+
+   - name: Install pip
+     become: true
+     become_user: root
+     package:
+       name: 
+         - pip
+       state: present     
+       
+   - name: Install docker-py python module
+     become: true
+     become_user: root
+     pip:
+       name: docker-py
+       state: present 
+
+   - name: start docker
+     service:
+       name: docker
+       state: started
+       enabled: yes 
+       
+   - name: pull the latest docker image
+     docker_image:
+       name: abdulbabawale/todobackend:1.0.3 
+       source: pull
+       state: present
+       
+   - name: Run the docker container
+     docker_container:
+       name:
+       image: abdulbabawale/todobackend:1.0.3 
+       state: started
+       published_ports:
+         - "0.0.0.0:5000:5000"
