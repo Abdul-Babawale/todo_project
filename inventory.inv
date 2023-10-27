@@ -1,1 +1,2 @@
-3.92.146.187
+[inventory]
+3.92.146.187 ansible_user=ec2-user
