@@ -4,11 +4,8 @@
   tasks:
        
    - name: Install python pip
-     become: true
-     become_user: root
-     package:
-       name: 
-         - python-pip
+     yum:
+       name: python-pip
        state: present  
 
    - name: Install docker 
