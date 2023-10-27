@@ -3,29 +3,13 @@
   become: true
   tasks:
        
-   - name: Install Python 2.7 and pip
-       dnf:
-         name:
-           - python2
-           - python2-pip
-         state: present
-
-   - name: Set alternatives for Python 2.7
-     command: alternatives --set python /usr/bin/python2.7
-
-   - name: Verify Python version
-     command: python --version
-     register: python_version
-     changed_when: false
-
-   - name: Install virtualenv for Python 2.7
-     pip:
-       name: virtualenv
-       executable: pip2.7
-       state: present
-
-   - name: Create a virtual environment for Python 2.7
-      command: virtualenv -p python2.7 /path/to/your/virtualenv 
+   - name: Install python pip
+     become: true
+     become_user: root
+     package:
+       name: 
+         - python-pip
+       state: present  
 
    - name: Install docker 
      become: true
